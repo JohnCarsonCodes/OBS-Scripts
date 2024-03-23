@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Black+Han+Sans&family=Style+Script&display=swap" rel="stylesheet">
+    <title>Fortnite: Randomized Choice
+    </title>
+
+    <style>
+      *,
+      *:before,
+      *:after {
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #060606;
+        line-height: 1.1;
+        min-height: 100vh;
+        font-family: 'Black Han Sans';
+      }
+
+      .fade {
+        animation: fadeOut 1s forwards;
+        animation-delay: 8s;
+      }
+
+      @keyframes fadeOut {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      .card {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 1.5rem;
+        width: 600px;
+        height: 1000px;
+        background-color: #1b2028;
+        border-radius: 24px;
+        position: relative;
+        border: 3px solid transparent;
+        background-clip: padding-box;
+        text-align: center;
+        color: transparent; /* Initially hide the text */
+        background-image: linear-gradient(
+          135deg,
+          rgba(#752e7c, 0.35),
+          rgba(#734a58, 0.1) 15%,
+          #1b2028 20%,
+          #1b2028 100%
+        );
+        animation: growAndSpin 2s forwards, fadeIn 2s forwards; /* Apply both animations */
+      }
+
+      @keyframes growAndSpin {
+        0% {
+          transform: scaleY(0) rotateY(0deg);
+        }
+        100% {
+          transform: scaleY(1) rotateY(360deg);
+        }
+      }
+
+      @keyframes fadeIn {
+        0% {
+          color: transparent; /* Fully transparent */
+        }
+        100% {
+          color: #f1f3f3; /* Fully opaque */
+        }
+      }
+
+      .card-image {
+        background-image: linear-gradient(180deg,
+        rgba(241, 241, 241, 0.514), rgba(221, 221, 221, 0.37));
+        border: 2px solid rgba(191, 151, 224, 0.425);
+        /* background-color: rgba(255, 255, 255, 0.2); */
+        height: 39%;
+        width: 100%;
+        border-radius: 24px;
+      }
+
+      .card-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: linear-gradient(180deg,
+        rgba(51, 30, 65, 0.7), rgba(36, 36, 71, 0.7)), url(https://static.vecteezy.com/system/resources/thumbnails/010/985/297/small/gold-stars-scattering-cut-out-png.png);
+        background-size: contain; 
+        height: 100%;
+        width: 100%;
+        border-radius: 24px;
+        border: 2px solid rgba(212, 159, 255, 0.3);
+        padding: 50px;
+      }
+
+      .text-content {
+        display: flex;
+        paint-order: stroke fill;
+        font-weight: bold;
+        font-size: 70px;
+        text-align: center;
+        text-shadow: 2px 2px black;
+        opacity: 0; /* Initially fully transparent */
+        animation: fadeInText 1s forwards; /* Apply fade-in animation */
+        animation-delay: 2.2s;
+      }
+
+      @keyframes fadeInText {
+        0% {
+          opacity: 0; /* Fully transparent */
+        }
+        100% {
+          opacity: 1; /* Fully opaque */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fade">
+      <div class="card">
+        <div class="card-text">
+            <div id="randomString" class="text-content"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Array of strings
+      var strings = [
+        "JohnCarson Drinks",
+        "No Glasses Until Next Kill",
+        "WhiteRavyn Drinks",
+        "Traversals Only",
+        "JohnCarson Drinks",
+        "Drop Equipped Weapon",
+        "WhiteRavyn Drinks",
+        "Drop ALL Guns",
+      ];
+
+      // Function to choose a random string and display it
+      function displayRandomString() {
+        var randomIndex = Math.floor(Math.random() * strings.length);
+        document.getElementById("randomString").innerText =
+          strings[randomIndex];
+      }
+
+      // Delay execution by 2 seconds
+      setTimeout(function() {
+        // Interval to change the string every 100 milliseconds
+        var intervalId = setInterval(displayRandomString, 75);
+
+        // Stop changing the string after 5000 milliseconds
+        setTimeout(function() {
+          clearInterval(intervalId);
+        }, 75);
+      }, 2000); // 2000 milliseconds = 2 seconds delay
+    </script>
+  </body>
+</html>
