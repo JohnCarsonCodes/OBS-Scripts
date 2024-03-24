@@ -42,12 +42,22 @@
             }
         }
 
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
         .card-back,
         #card-front {
             backface-visibility: hidden;
             position: absolute;
             width: 100%;
             height: 100%;
+            animation: 1s fadeOut 10s ease-out forwards
         }
 
         .card-back {
@@ -58,8 +68,8 @@
 <body>
     <div class="content-area">
         <div class="card-container">
-            <div class="card-back"><img src="https://raw.githubusercontent.com/JohnCarsonCodes/OBS-Scripts/main/resources/card-back.png?token=GHSAT0AAAAAACQAZANH5SIUGEE5MMJ363BGZQATDWA" /></div>
-            <div id="card-front"></div>
+            <div class="card-back"><img src="https://raw.githubusercontent.com/JohnCarsonCodes/OBS-Scripts/main/resources/card-back.png?token=GHSAT0AAAAAACQAZANHB7PYEBM2ZB44AB64ZQATKUA" /></div>
+            <div id="card-front"><img src="resources/card-spin.jpeg" /></div>
         </div>
     </div>
 
