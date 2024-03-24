@@ -1,11 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
     <title>Fortnite: Randomized Start</title>
-</head>
-<body>
-    
-</body>
+    <style>
+      html {
+        display: flex;
+        justify-content: end;
+        background-color: black;
+        font-size: 18px;
+        color: black;
+        height: 100vh;
+      }
+
+      .challenge {
+        text-align: right;
+        max-width: 1200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .type-bg {
+        background-color: white;
+        border-radius: 16px;
+        padding: 15px;
+      }
+
+      .type {
+        font-family: "Quicksand";
+        font-size: 4rem;
+        text-align: right;
+      }
+
+      .title-bg {
+        background-color: white;
+        border-radius: 16px;
+        padding: 15px;
+      }
+
+      .title {
+        font-family: "Russo One";
+        font-size: 6rem;
+        text-align: right;
+      }
+
+      .description-bg {
+        background-color: white;
+        border-radius: 16px;
+        padding: 15px;
+      }
+
+      .description {
+        font-family: "Roboto";
+        font-size: 2.5rem;
+        text-align: right;
+      }
+
+      .description.full-line {
+        width: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="challenge">
+      <div class="type-bg">
+        <div class="type"></div>
+      </div>
+      <div class="title-bg">
+        <div class="title"></div>
+      </div>
+      <div class="description-bg">
+        <div class="description full-line"></div>
+      </div>
+    </div>
+
+    <script>
+      let challenges = [
+        {
+          type: "Drop Location",
+          title: "The Underworld",
+          description: null,
+        },
+        {
+          type: "Drop Location",
+          title: "Grim Gate",
+          description: null,
+        },
+        {
+          type: "Drop Location",
+          title: "Mount Olympus",
+          description: null,
+        },
+        {
+          type: "Drop Location",
+          title: "Brawler's Battleground",
+          description: null,
+        },
+        {
+          type: "Drop Location",
+          title: "Classy Courts",
+          description: null,
+        },
+        {
+          type: "Drop Location",
+          title: "Fencing Fields",
+          description: null,
+        },
+        {
+          type: "Drop Location",
+          title: "Grand Glacier",
+          description: null,
+        },
+        {
+          type: "Drop Location",
+          title: "Lavish Lair",
+          description: null,
+        },
+        {
+          type: "Drop Location",
+          title: "Pleasant Piazza",
+          description: null,
+        },
+        {
+          type: "Drop Location",
+          title: "Rebel's Roost",
+          description: null,
+        },
+        {
+          type: "Drop Location",
+          title: "Reckless Railways",
+          description: null,
+        },
+        {
+          type: "Drop Location",
+          title: "Restored Reels",
+          description: null,
+        },
+        {
+          type: "Drop Location",
+          title: "Snooty Steppes",
+          description: null,
+        },
+        {
+          type: "Drop Zone",
+          title: "Immediate Drop",
+          description:
+            "Drop straight down to closest landmark as soon as you can jump",
+        },
+        {
+          type: "Drop Zone",
+          title: "End Drop",
+          description: "Do not jump! Drop straight down at end of bus route",
+        },
+        {
+          type: "Drop Zone",
+          title: "Hot Drop",
+          description: "Drop into any hot zone on the map",
+        },
+        {
+          type: "Team Challenge",
+          title: "No Friends Here",
+          description:
+            "All squad members must land in a different named location",
+        },
+        {
+          type: "Team Challenge",
+          title: "The More, The Merrier",
+          description: "Each squad member must land and hire an npc companion",
+        },
+        {
+          type: "Team Challenge",
+          title: "Stick It To The Man",
+          description: "Squad has to drop at a boss and defeat them",
+        },
+        {
+          type: "Team Challenge",
+          title: "I Love Gold",
+          description:
+            "You are medallion hunters and must push towards active medallions at all times",
+        },
+        {
+          type: "Gun Challenge",
+          title: "Grey Only",
+          description: "You can only use grey weapons",
+        },
+        {
+          type: "Gun Challenge",
+          title: "Green Down",
+          description: "You can only use green or below weapons",
+        },
+        {
+          type: "Gun Challenge",
+          title: "Blue Up",
+          description: "You can only use blue or above weapons",
+        },
+        {
+          type: "Gun Challenge",
+          title: "No Guns Here",
+          description: "Guns are completely forbidden for the round",
+        },
+        {
+          type: "Gun Challenge",
+          title: "Combat Medic",
+          description: "You can only carry items that gives health or shields",
+        },
+        {
+          type: "Gun Challenge",
+          title: "One Gun Only",
+          description: "You can only have one gun slotted at any given time",
+        },
+        {
+          type: "Gun Challenge",
+          title: "Hardscoper",
+          description: "Semi-Automatic weapons only",
+        },
+        {
+          type: "Gun Challenge",
+          title: "Close Quarters",
+          description: "Shotguns only",
+        },
+        {
+          type: "Game Challenge",
+          title: "So Thirsty",
+          description: "You can not consume anything to give you shields",
+        },
+      ];
+
+      function getRandomChallenge() {
+        var randomIndex = Math.floor(Math.random() * challenges.length);
+        var randomChallenge = challenges[randomIndex];
+        document.querySelector(".type").innerText = randomChallenge.type;
+        document.querySelector(".title").innerText = randomChallenge.title;
+        var descriptionDiv = document.querySelector(".description");
+        if (randomChallenge.description) {
+          descriptionDiv.innerText = randomChallenge.description;
+          document.querySelector(".description-bg").style.display = "block";
+        } else {
+          document.querySelector(".description-bg").style.display = "none";
+        }
+      }
+
+      getRandomChallenge();
+    </script>
+  </body>
 </html>
