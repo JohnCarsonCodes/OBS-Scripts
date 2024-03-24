@@ -12,61 +12,108 @@
     <title>Fortnite: Randomized Start</title>
     <style>
       html {
-        display: flex;
-        justify-content: end;
-        background-color: black;
+        background-color: transparent;
         font-size: 18px;
         color: black;
         height: 100vh;
       }
 
-      .challenge {
-        text-align: right;
-        max-width: 1200px;
+      body {
+        margin: 0 auto;
+        padding: 0;
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        gap: 10px;
+        justify-content: right;
       }
 
-      .type-bg {
+      .challenge {
+        text-align: right;
+        min-width: 800px;
+        max-width: 1200px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        gap: 10px;
+        animation: fadeOut 1s forwards;
+        animation-delay: 10s;
+        margin: 20px;
+      }
+
+      @keyframes fadeOut {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      .type-bg,
+      .title-bg,
+      .description-bg {
         background-color: white;
+        box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.2);
         border-radius: 16px;
         padding: 15px;
+        opacity: 0;
+        animation: fadeIn 1s forwards;
+      }
+
+      .title-bg {
+        animation-delay: 1s;
+      }
+
+      .description-bg {
+        animation-delay: 2s;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
       }
 
       .type {
         font-family: "Quicksand";
         font-size: 4rem;
         text-align: right;
-      }
-
-      .title-bg {
-        background-color: white;
-        border-radius: 16px;
-        padding: 15px;
+        opacity: 0;
+        animation: textFadeIn 1s forwards;
+        animation-delay: 0.5s;
       }
 
       .title {
         font-family: "Russo One";
         font-size: 6rem;
         text-align: right;
-      }
-
-      .description-bg {
-        background-color: white;
-        border-radius: 16px;
-        padding: 15px;
+        opacity: 0;
+        animation: textFadeIn 1s forwards;
+        animation-delay: 1.5s;
       }
 
       .description {
         font-family: "Roboto";
         font-size: 2.5rem;
         text-align: right;
+        opacity: 0;
+        animation: textFadeIn 1s forwards;
+        animation-delay: 2.5s;
       }
 
       .description.full-line {
         width: auto;
+      }
+
+      @keyframes textFadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
       }
     </style>
   </head>
